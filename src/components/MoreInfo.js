@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 export default class MoreInfo extends Component {
 
     constructor() {
@@ -9,21 +8,17 @@ export default class MoreInfo extends Component {
     }
 
 
-
     render() {
 
-        console.log(this.props.info)
+        return (
+            <div style={{ height: "100vh" }}>
+                <br></br><br></br>
 
-
-        return  (
-            <div style = {{height:"100vh"}}>
-<br></br><br></br>
-
-                {this.props.info.slice(2, 5).map(i => <div><br></br><span id="moreInfo">{i}</span><br></br><br></br></div>)}
+                <div><br></br><span id="moreInfo">{this.props.info.info1}</span><br></br><br></br></div>
+                <div><br></br><span id="moreInfo">{this.props.info.info2}</span><br></br><br></br></div>
+                <div><br></br><span id="moreInfo">{this.props.info.info3}</span><br></br><br></br></div>
 
                 <span id="emoji">💧</span>
-
-
 
             </div>
         )

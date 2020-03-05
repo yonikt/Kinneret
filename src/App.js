@@ -6,9 +6,7 @@ import Home from './components/Home';
 import About from './components/About';
 const axios = require('axios');
 
-
 export default class App extends Component {
-
 
   constructor() {
 
@@ -23,14 +21,12 @@ export default class App extends Component {
   }
 
 
-
-
-
     render() {
 
       console.log(this.state.data)
 
     return (
+
 
       <Router>
 

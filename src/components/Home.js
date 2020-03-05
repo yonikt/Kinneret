@@ -62,7 +62,7 @@ export default class Home extends Component {
             </div>
 
             <div class="glow">
-  <span class="major">{this.props.data[0]}</span>
+  <span class="major">{this.props.data.today}</span>
 </div>
 
 
