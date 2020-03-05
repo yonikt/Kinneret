@@ -33,7 +33,7 @@ app.use(function (req, res, next) {
 })
 
 
-request("http://kineret.org.il/miflasim", function (error, response, body) {
+request.get("http://kineret.org.il/miflasim", function (error, response, body) {
   if (error) {
     console.log(error);
   }
