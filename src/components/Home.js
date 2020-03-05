@@ -8,45 +8,23 @@ export default class Home extends Component {
         this.state = {}
     }
 
-    redLines()  {
-
-        let lines = document.querySelectorAll('.line-reveal');
-    
-        for (let i = 0; i < lines.length; i++) {
-    
-          (function (line, time) {
-            setTimeout(function () {
-              line.classList.add('show');
-            }, time);
-          })(lines[i], i * 500);
-    
-        }
-    
-      }
-
-
 
     render() {
-
 
         return (
 
             <div>
 
-                {this.redLines()}
-     
-            <div class="line-reveal" id="line-a"> הקו האדום העליון (208.8-)
+            <div class="line-reveal show" id="line-a"> הקו האדום העליון (208.8-)
               <div class="overlay"></div>
               <div class="line"></div>
             </div>
 
 
-            <div class="line-reveal" id="line-b">הקו האדום התחתון (213-)
+            <div class="line-reveal show" id="line-b">הקו האדום התחתון (213-)
               <div class="overlay"></div>
               <div class="line"></div>
             </div>
-
-
 
             
             <div class="inner-header flex" >
@@ -64,9 +42,7 @@ export default class Home extends Component {
             <div class="glow">
   <span class="major">{this.props.data.today}</span>
 </div>
-
-
-            
+       
             
             <div>
        

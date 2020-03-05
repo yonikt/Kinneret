@@ -41,7 +41,7 @@ export default class App extends Component {
               <span></span>
 
               <ul id="menu">
-                <li><Link to="/home">בית</Link></li>
+                <li id="xxx" ><Link to="/home">בית</Link></li>
                 <li><Link to="/moreInfo">עובדות מעניינות</Link></li>
                 <li><Link to="/about">אודות</Link></li>
               </ul>

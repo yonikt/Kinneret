@@ -22,14 +22,10 @@ app.use(function (req, res, next) {
 })
 
 
-
 app.get('/data', function (req, res) {
-
   request.get("http://kineret.org.il/miflasim", function (error, response, body) {
 
-    if (error) {
-      console.log(error);
-    }
+    if (error) { console.log(error); }
 
     else if (body) {
       const $ = cheerio.load(body);
@@ -39,26 +35,18 @@ app.get('/data', function (req, res) {
         info1: $('#hp_miflas_info').text().slice(12, 47),
         info2: $('#hp_miflas_info').text().slice(49, 84),
         info3: $('#hp_miflas_info').text().slice(84, 132)
-
       }
       res.json(data)
     }
-
   })
 })
-
-
-
 
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-
-
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://user:111111a@ds213178.mlab.com:13178/heroku_8nq6g9cl')
-
 
 app.listen(port, () => {
   console.log(`Server is starting at PORT: ${port}`);

@@ -18,6 +18,7 @@ export default class MoreInfo extends Component {
                 <div><br></br><span id="moreInfo">{this.props.info.info2}</span><br></br><br></br></div>
                 <div><br></br><span id="moreInfo">{this.props.info.info3}</span><br></br><br></br></div>
 
+
                 <span id="emoji">💧</span>
 
             </div>
