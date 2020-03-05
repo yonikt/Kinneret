@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cheerio = require('cheerio');
 
-app.use(express.static(path.join(__dirname, '../kin/build')));
+app.use(express.static(path.join(__dirname, '.kin/build')));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'node_modules')))
