@@ -9,7 +9,7 @@ const cheerio = require('cheerio');
 
 //app.use(express.static(path.join(__dirname, 'build')));
 
-if (process.env.NODE_ENV==="production"){
+if (NODEJS.process.env.NODE_ENV==="production"){
   app.use(express.static("kin/build"));
 }
 
