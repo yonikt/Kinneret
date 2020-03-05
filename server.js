@@ -55,6 +55,9 @@ request("http://kineret.org.il/miflasim", function (error, response, body) {
 
 
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/kokom', { useNewUrlParser: true }).then(() =>  {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://user:111111a@ds213178.mlab.com:13178/heroku_8nq6g9cl')
+
+
+
+
   app.listen(process.env.PORT || port, () => console.log(`Running server on port ${port}`))
-})
