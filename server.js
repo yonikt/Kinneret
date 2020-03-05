@@ -23,6 +23,15 @@ app.use(function (req, res, next) {
 
 
 
+  app.get('/:artist/:title', function (req, res) {
+    const title = req.params.title
+    const artist = req.params.artist
+    request.get(`https://api.lyrics.ovh/v1/${artist}/${title}`, function (error, response) {
+        let resp = JSON.parse(response.body)
+        res.json(resp)
+    })
+})
+
 
 request("http://kineret.org.il/miflasim", function (error, response, body) {
   if (error) {
@@ -50,18 +59,15 @@ request("http://kineret.org.il/miflasim", function (error, response, body) {
   }
 });
 
-  // app.get('*', function (req, res) {
-  //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  // });
+
+
+  app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 
 
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://user:111111a@ds213178.mlab.com:13178/heroku_8nq6g9cl')
-
-
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 
 app.listen(port, () => {

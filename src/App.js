@@ -18,9 +18,12 @@ export default class App extends Component {
   }
 
   async componentDidMount() {
-    const response = await axios.get("/data" )
+    const response = await axios.get("/adele/hello" )
     this.setState({ data: response.data })
   }
+
+
+
 
 
     render() {
@@ -30,6 +33,8 @@ export default class App extends Component {
     return (
 
       <Router>
+
+    <div>{this.state.data.lyrics}</div>
 
         <div class="header">
           <nav role="navigation">
