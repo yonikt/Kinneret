@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cheerio = require('cheerio');
 
-//app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -65,7 +65,7 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
       res.sendFile(path.join(__dirname, 'kin', 'build', 'index.html')); // relative path
   });
-}
+ }
 
 app.listen(port, () => {
   console.log(`Server is starting at PORT: ${port}`);
