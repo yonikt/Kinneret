@@ -39,13 +39,8 @@ request("http://kineret.org.il/miflasim", function (error, response, body) {
     ]
 
     app.get('/data', async function (req, res)  {
-
-
       res.json(data)
-
-
     })
-
 
   }
 
