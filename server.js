@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cheerio = require('cheerio');
 
-app.use(express.static(path.join(__dirname, 'build')));
+//app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -50,15 +50,23 @@ request("http://kineret.org.il/miflasim", function (error, response, body) {
   }
 });
 
-  app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+  // app.get('*', function (req, res) {
+  //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  // });
 
 
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://user:111111a@ds213178.mlab.com:13178/heroku_8nq6g9cl')
 
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static( 'kin/build' ));
 
+  app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'kin', 'build', 'index.html')); // relative path
+  });
+}
 
-  app.listen(process.env.PORT || port, () => console.log(`Running server on port ${port}`))
+app.listen(PORT, () => {
+  log(`Server is starting at PORT: ${PORT}`);
+});
