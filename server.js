@@ -59,13 +59,10 @@ request("http://kineret.org.il/miflasim", function (error, response, body) {
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://user:111111a@ds213178.mlab.com:13178/heroku_8nq6g9cl')
 
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static( 'kin/build' ));
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
-  app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, 'kin', 'build', 'index.html')); // relative path
-  });
- }
 
 app.listen(port, () => {
   console.log(`Server is starting at PORT: ${port}`);
