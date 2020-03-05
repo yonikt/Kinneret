@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cheerio = require('cheerio');
 
-app.use(express.static(path.join(__dirname, 'build')));
+//app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -65,9 +65,9 @@ app.get('/data', function (req, res) {
 
 
 
-  app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+  // app.get('*', function (req, res) {
+  //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  // });
 
 
 
