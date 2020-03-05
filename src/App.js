@@ -34,7 +34,6 @@ export default class App extends Component {
 
       <Router>
 
-    <div>{this.state.data.lyrics}</div>
 
         <div class="header">
           <nav role="navigation">

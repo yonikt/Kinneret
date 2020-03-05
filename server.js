@@ -33,31 +33,60 @@ app.use(function (req, res, next) {
 })
 
 
-request.get("http://kineret.org.il/miflasim", function (error, response, body) {
-  if (error) {
-    console.log(error);
-  }
-  else if (body) {
-    const $ = cheerio.load(body);
-    const data = [
-      today= $('.hp_miflas_height').text(),
-      date= $('.hp_miflas_date').text(),
-      info1=  $('#hp_miflas_info').text().slice(12,47),
-      info2=  $('#hp_miflas_info').text().slice(49,84),
-      info3=  $('#hp_miflas_info').text().slice(84,132)
+app.get('/data', function (req, res) {
 
-    ]
 
-    app.get('/data', async function (req, res)  {
+
+  request.get("http://kineret.org.il/miflasim", function (error, response, body) {
+
+    if (error) {
+      console.log(error);
+    }
+
+    else if (body) {
+      const $ = cheerio.load(body);
+      const data = [
+        today= $('.hp_miflas_height').text(),
+        date= $('.hp_miflas_date').text(),
+        info1=  $('#hp_miflas_info').text().slice(12,47),
+        info2=  $('#hp_miflas_info').text().slice(49,84),
+        info3=  $('#hp_miflas_info').text().slice(84,132)
+  
+      ]
       res.json(data)
-    })
-
   }
 
-  else {
-    console.log("No body");
-  }
-});
+
+
+
+}) })
+
+
+// request.get("http://kineret.org.il/miflasim", function (error, response, body) {
+//   if (error) {
+//     console.log(error);
+//   }
+//   else if (body) {
+//     const $ = cheerio.load(body);
+//     const data = [
+//       today= $('.hp_miflas_height').text(),
+//       date= $('.hp_miflas_date').text(),
+//       info1=  $('#hp_miflas_info').text().slice(12,47),
+//       info2=  $('#hp_miflas_info').text().slice(49,84),
+//       info3=  $('#hp_miflas_info').text().slice(84,132)
+
+//     ]
+
+//     app.get('/data', async function (req, res)  {
+//       res.json(data)
+//     })
+
+//   }
+
+//   else {
+//     console.log("No body");
+//   }
+// }) ;
 
 
 
