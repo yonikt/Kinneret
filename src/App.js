@@ -18,7 +18,7 @@ export default class App extends Component {
   }
 
   async componentDidMount() {
-    const response = await axios.get("http://localhost:4000/data" )
+    const response = await axios.get('/data')
     this.setState({ data: response.data })
   }
 
