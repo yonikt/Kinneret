@@ -7,8 +7,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cheerio = require('cheerio');
 
-//app.use(express.static(path.join(__dirname, '/build')));
-app.use(express.static(path.join(__dirname, "kin", "build")))
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'node_modules')))
@@ -50,11 +49,11 @@ request("http://kineret.org.il/miflasim", function (error, response, body) {
   }
 });
 
- 
+  app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "kin", "build", "index.html"));
-});
+
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/kokom', { useNewUrlParser: true }).then(() =>  {
   app.listen(process.env.PORT || port, () => console.log(`Running server on port ${port}`))
